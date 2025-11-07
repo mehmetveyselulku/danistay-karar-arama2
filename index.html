@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Danıştay Karar Arama</title>
+  <link rel="icon" href="favicon.ico">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #f6f8fa, #dce3f0);
+      margin: 0;
+    }
+    h2 {
+      color: #0b3d91;
+      margin-bottom: 20px;
+    }
+    input {
+      width: 300px;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      outline: none;
+      text-align: center;
+    }
+    input:focus {
+      border-color: #0b3d91;
+      box-shadow: 0 0 5px #0b3d91;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      background: #0b3d91;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 15px;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #092d70;
+    }
+  </style>
+</head>
+<body>
+  <h2>Danıştay Karar Arama</h2>
+  <input id="keyword" type="text" placeholder="Anahtar kelime girin" onkeydown="if(event.key==='Enter') search()">
+  <button onclick="search()">Ara</button>
+
+  <script>
+    function search() {
+      const keyword = document.getElementById('keyword').value.trim();
+      if (keyword) {
+        window.location.href = `https://karar.danistay.gov.tr/?q=${encodeURIComponent(keyword)}`;
+      } else {
+        alert('Lütfen bir arama terimi girin.');
+      }
+    }
+  </script>
+</body>
+</html>
